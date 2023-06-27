@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PodTemplate
+metadata:
+  name: default
+  namespace: flytesnacks-development
+template:
+  metadata:
+  spec:
+    containers:
+      - name: primary
+        image: docker.io/rwgrim/docker-noop
+        env:
+        - name: FOO
+          value: BAR
