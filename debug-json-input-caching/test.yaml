@@ -1,0 +1,9 @@
+iamRoleARN: ""
+inputs:
+    config: '{"add_eos_token":true,"input_key":"input","train_on_inputs":true,"data_path":"yahma/alpaca-cleaned","base_model":"meta-llama/Llama-2-13b-hf","save_steps":50,"output_dir":"./output","resume_from_checkpoint":"(empty)","learning_rate":0.0003,"cutoff_len":512,"warmup_ratio":0.03,"lora_dropout":0.05,"wandb_log_model":"","group_by_length":true,"wandb_run_name":"","lora_r":8,"eval_steps":500,"output_key":"output","batch_size":32,"micro_batch_size":8,"max_steps":300,"val_set_size":0,"debug_mode":false,"wandb_watch":"","weight_decay":0.02,"publish_config":{"readme":"# Llama-2-13b fine-tuned on LoRA alpaca-cleaned","model_card":{"tags":["pytorch","causal-lm","llama2","fine-tuning","alpaca"],"language":["en"],"license":"apache-2.0"},"repo_id":"unionai/Llama-2-13b-LoRA-alpaca-cleaned"},"lora_alpha":16,"num_epochs":1,"debug_train_data_size":1024,"lr_scheduler_type":"cosine","lora_target_modules":["q_proj","k_proj","v_proj"],"device_map":"auto","instruction_key":"instruction","wandb_project":"unionai-llm-fine-tuning"}'
+envs: {}
+kubeServiceAcct: ""
+targetDomain: ""
+targetProject: ""
+version: ZP4xMYMr-0CQvpnX2SclgA==
+workflow: wf.my_wf
