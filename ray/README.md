@@ -4,10 +4,13 @@
 
 1. Enable the Ray Flyte plugin on the sandbox, by adding the following block to `~/.flyte/sandbox/config.yaml`:
 ```
+plugins:
+  ray:
+    shutdownAfterJobFinishes: true
+    ttlSecondsAfterFinished: 60
 tasks:
   task-plugins:
     default-for-task-types:
-      bigquery_query_job_task: agent-service
       container: container
       container_array: k8s-array
       sidecar: sidecar
@@ -16,7 +19,6 @@ tasks:
     - container
     - sidecar
     - k8s-array
-    - agent-service
     - ray
 ```
 
@@ -28,7 +30,7 @@ $ flytectl demo start
 3. Install KubeRay:
 ```
 $ helm repo add kuberay https://ray-project.github.io/kuberay-helm/
-$ helm install kuberay-operator kuberay/kuberay-operator --version 0.5.0 --namespace ray-system --create-namespace
+$ helm install kuberay-operator kuberay/kuberay-operator --version 0.5.2 --namespace ray-system --create-namespace
 $ kubectl rollout status deploy/kuberay-operator -n ray-system -w
 ```
 
