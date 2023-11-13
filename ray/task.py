@@ -1,20 +1,20 @@
-import ray
 import time
 
-from flytekit import task, Resources
+import ray
+from flytekit import Resources, task
 from flytekitplugins.ray import RayJobConfig, WorkerNodeConfig
 
 
 @ray.remote
 def compute_squared(value: int) -> int:
-    print(f"Computing squared of {value}...")
+    result = value * value
+    print(f"{value} * {value} = {result}")
     time.sleep(5)
-    result = value**2
-    print(f"Computed squared of {value}: {result}")
     return result
 
 
 @task(
+    environment={"RAY_DEDUP_LOGS": "0"},
     limits=Resources(cpu="1", mem="1Gi"),
     task_config=RayJobConfig(
         worker_node_config=[WorkerNodeConfig(group_name="ray-group", replicas=1)],
