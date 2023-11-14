@@ -9,7 +9,7 @@ from flytekitplugins.ray import RayJobConfig, WorkerNodeConfig
 def compute_squared(value: int) -> int:
     result = value * value
     print(f"{value} * {value} = {result}")
-    time.sleep(5)
+    time.sleep(30)
     return result
 
 
