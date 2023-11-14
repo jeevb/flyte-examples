@@ -34,17 +34,12 @@ $ helm install kuberay-operator kuberay/kuberay-operator --version 0.5.2 --names
 $ kubectl rollout status deploy/kuberay-operator -n ray-system -w
 ```
 
-4. Build and push the image:
-```
-$ docker build -t localhost:30000/ray-example:latest . && docker push localhost:30000/ray-example:latest
-```
-
-5. Run the Ray task:
+4. Run the Ray task:
 ```
 $ pyflyte run --remote --image=localhost:30000/ray-example:latest task.py ray_task --n=5
 ```
 
-6. Teardown the sandbox:
+5. Teardown the sandbox:
 ```
 $ flytectl demo teardown -v
 ```
